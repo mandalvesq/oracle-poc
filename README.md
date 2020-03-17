@@ -1,3 +1,14 @@
+# Oracle PoC
+
+## Agenda
+- Efetuar Data Pump e RMAN (não precisa ser com todos os dados, para a PoC vamos replicar o schema e uma parte dos dados)
+- Instalar o AWS CLI
+- Criar S3, VPC e Roles
+- Criar RDS e EC2
+- Efetuar replicação Data Pump para RDS & replicação RMAN para EC2
+- Conectar via um client para verificar a base replicada
+
+
 ## Comandos auxiliares
 
 ### S3 MultiPart Upload
@@ -17,7 +28,7 @@ aws s3 cp file.txt s3://poc-backup-bucket/rman-test --region sa-east-1 --endpoin
 ### SSH Tunnel
 
 ```
-ssh -o ProxyCommand='ssh -i poc-kp.pem -W %h:%p  ec2-user@3.217.203.173' -i poc-kp.pem ec2-user@192.168.3.106
+ssh -o ProxyCommand='ssh -i poc-kp.pem -W %h:%p  ec2-user@public-ip' -i poc-kp.pem ec2-user@private-ip
 ```
 
 ### Instalando Oracle DB EC2
